@@ -1,9 +1,12 @@
-import React from "react";
+import { useContext } from "react";
+import ModeToggle from "./components/ModeToggle/ModeToggle";
+import { UserContext } from "./utils/useContext";
 function App() {
+  const { isDarkMode } = useContext(UserContext);
   return (
-    <>
-      123
-    </>
+    <main className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+      <ModeToggle />
+    </main>
   );
 }
 export default App;
