@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-data-visualization-covid/static/css/main.3f04b701.css",
+    "main.js": "/react-data-visualization-covid/static/js/main.6fd88156.js",
+    "index.html": "/react-data-visualization-covid/index.html",
+    "main.3f04b701.css.map": "/react-data-visualization-covid/static/css/main.3f04b701.css.map",
+    "main.6fd88156.js.map": "/react-data-visualization-covid/static/js/main.6fd88156.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f04b701.css",
+    "static/js/main.6fd88156.js"
+  ]
+}
