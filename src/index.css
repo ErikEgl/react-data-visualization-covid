@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+main {
+  max-width: 1400px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=index.css.map */
