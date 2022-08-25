@@ -18,18 +18,18 @@ function ChartControls(props) {
   //
   return (
     <>
-     <input 
-     type="radio"
-     id={props.control} //input label
-     name={props.name} //tab name
-     value={props.control} //input label
-     checked={selectedOptions.RankedCharts.value === props.control || selectedOptions.ReportedCases.value === props.control}
-     onChange={handleChange}
-    />
-
-    
-    <label htmlFor={props.control}>{props.control}</label>
-    <br />
+    <div className="d-flex flex-column gap-1 justify-content-center form-check form-switch p-0 m-0 border border-5 p-3">
+        <input 
+        className="form-check-input m-0 p-0"
+        type="radio"
+        id={props.control} //input label
+        name={props.name} //tab name
+        value={props.control} //input label
+        checked={selectedOptions.RankedCharts.value === props.control || selectedOptions.ReportedCases.value === props.control}
+        onChange={handleChange}
+        />
+        <label className="form-check-label m-0 p-0" htmlFor={props.control}>{props.control}</label>
+     </div>
     </>
   );
 }
