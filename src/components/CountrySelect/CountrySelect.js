@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../utils/useContext";
+import { Form } from 'react-bootstrap';
 import CountryOptionItem from '../CountryOptionItem/CountryOptionItem'
 function CountrySelect() {
   const { selectCountry, selectedCountry, covidData } = useContext(UserContext);
@@ -18,7 +19,7 @@ function CountrySelect() {
   return (
     <>
         <form>
-          <select 
+          <Form.Select 
               id="countrySelect"
               value={selectedCountry.length ? selectedCountry : ""}
               onChange={handleChange}
@@ -26,7 +27,7 @@ function CountrySelect() {
           >
               <option value="">-- Choose --</option>
               {items}
-          </select>
+          </Form.Select>
         </form>
     </>
   );
