@@ -78,11 +78,11 @@ const [covidData, setCovidData] = useState();
   }, [])
 
   if (isDarkMode) {
-    document.body.classList.add("bootstrap-dark");
-    document.body.classList.remove("bootstrap");
+    document.querySelector('html').classList.add("bootstrap-dark")
+    document.querySelector('html').classList.remove("bootstrap")
   } else {
-    document.body.classList.add("bootstrap");
-    document.body.classList.remove("bootstrap-dark");
+    document.querySelector('html').classList.add("bootstrap")
+    document.querySelector('html').classList.remove("bootstrap-dark")
   }
 
   return (
