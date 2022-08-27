@@ -10,8 +10,10 @@ function ChartBlock(props) {
   const { selectedCountry, selectedOptions } = useContext(UserContext);
   const { covidData } = useContext(UserContext);
   const chartControlNames = {
-    name1: "ReportedCases",
-    name2: "RankedCharts",
+    name1: "ReportedCases1",
+    name2: "ReportedCases2",
+    name3: "RankedCharts1",
+    name4: "RankedCharts2",
   };
   return (
     <div className="chart-block">
@@ -26,15 +28,17 @@ function ChartBlock(props) {
           <br />
           <h1>
             Line chart{" "}
-            {chartControlNames.name1 === selectedOptions.ReportedCases.name &&
-              selectedOptions.ReportedCases.value}
-            <br />
-            Line chart{" "}
-            {chartControlNames.name2 === selectedOptions.RankedCharts.name &&
-              selectedOptions.RankedCharts.value}
+            {chartControlNames.name1 === selectedOptions.ReportedCases1.name &&
+              selectedOptions.ReportedCases1.value}
           </h1>
           <br />
-          <div data-theme="dark" className="d-flex gap-2">
+          <h1>
+            Line chart{" "}
+            {chartControlNames.name2 === selectedOptions.ReportedCases2.name &&
+              selectedOptions.ReportedCases2.value}
+          </h1>
+          <br />
+          <div className="d-flex gap-2">
             <div className="d-flex rounded border border-5 justify-content-center align-items-center">
               <ChartControls
                 name={chartControlNames.name1}
@@ -57,11 +61,43 @@ function ChartBlock(props) {
             </div>
           </div>
         </Tab>
-        <Tab eventKey={chartControlNames.name2} title={chartControlNames.name2}>
+        <Tab eventKey={chartControlNames.name3} title={chartControlNames.name3}>
           {selectedCountry && selectedCountry.countrySelect}
           <br />
-          <h1>Bar chart</h1>
+          <h1>
+            Bar chart{" "}
+            {chartControlNames.name3 === selectedOptions.RankedCharts1.name &&
+              selectedOptions.RankedCharts1.value}
+          </h1>
           <br />
+          <h1>
+          Bar chart{" "}
+            {chartControlNames.name4 === selectedOptions.RankedCharts2.name &&
+              selectedOptions.RankedCharts2.value}
+          </h1>
+          <br />
+          <div className="d-flex gap-2">
+            <div className="d-flex rounded border border-5 justify-content-center align-items-center">
+              <ChartControls
+                name={chartControlNames.name3}
+                control="Total number of deaths"
+              />
+              <ChartControls
+                name={chartControlNames.name3}
+                control="Total number of cases"
+              />
+            </div>
+            <div className="d-flex rounded border border-5 justify-content-center align-items-center">
+              <ChartControls
+                name={chartControlNames.name4}
+                control="Countries to show 2"
+              />
+              <ChartControls
+                name={chartControlNames.name4}
+                control="Countries to show 3"
+              />
+            </div>
+          </div>
         </Tab>
       </Tabs>
     </div>

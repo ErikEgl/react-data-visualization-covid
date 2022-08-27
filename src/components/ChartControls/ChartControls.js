@@ -25,7 +25,12 @@ function ChartControls(props) {
         id={props.control} //input label
         name={props.name} //tab name
         value={props.control} //input label
-        checked={selectedOptions.RankedCharts.value === props.control || selectedOptions.ReportedCases.value === props.control}
+        checked={
+          selectedOptions.RankedCharts1.value === props.control ||
+          selectedOptions.RankedCharts2.value === props.control ||
+          selectedOptions.ReportedCases1.value === props.control ||
+          selectedOptions.ReportedCases2.value === props.control
+        }
         onChange={handleChange}
         />
         <label className="form-check-label m-0 p-0" htmlFor={props.control}>{props.control}</label>

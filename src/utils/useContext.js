@@ -6,10 +6,16 @@ function AppContextProvider(props) {
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [selectedCountry, setSelectedCountry] = useState({countrySelect: 'Estonia'})
   const [selectedOptions , setSelectedOptions] = useState({
-    RankedCharts: {
+    ReportedCases1: {
       value: ''
     },
-    ReportedCases: {
+    ReportedCases2: {
+      value: ''
+    },
+    RankedCharts1: {
+      value: ''
+    },
+    RankedCharts2: {
       value: ''
     },
   })
