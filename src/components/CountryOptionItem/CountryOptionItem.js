@@ -4,10 +4,10 @@ import { UserContext } from "../../utils/useContext";
 
 
 function CountryOptionItem(props) {
-  const { selectCountry } = useContext(UserContext);
+  const { selectCountry, selectedCountry } = useContext(UserContext);
   return (
     <>
-      <option value={props.location}>{props.location}</option>
+      <option id={props.id} value={props.id}>{props.location}</option>
     </>
   );
 }
