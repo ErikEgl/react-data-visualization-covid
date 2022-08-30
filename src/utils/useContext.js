@@ -4,7 +4,9 @@ const UserContext = createContext();
 
 function AppContextProvider(props) {
   const [isDarkMode, setIsDarkMode] = useState(false)
-  const [selectedCountry, setSelectedCountry] = useState({countrySelect: 'Estonia'})
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  const [selectedCountry, setSelectedCountry] = useState('EST')
   const [selectedOptions , setSelectedOptions] = useState({
     ReportedCases1: {
       value: ''
@@ -19,12 +21,17 @@ function AppContextProvider(props) {
       value: ''
     },
   })
+
+
+
   function changeMode() {
     setIsDarkMode(prevMode => !prevMode)
   }
+
   function selectCountry(country) {
     setSelectedCountry(country)
   }
+
   function selectOptions(value, name) {
     setSelectedOptions(prevOptions => {
       return ({
@@ -39,7 +46,7 @@ function AppContextProvider(props) {
 
 
 
-const [covidData, setCovidData] = useState();
+const [covidData, setCovidData] = useState([]);
   useEffect(() => {
     setCovidData({
       ABW: {
@@ -65,13 +72,13 @@ const [covidData, setCovidData] = useState();
         aged_65_older: 10.085,
         aged_70_older: 6.452,
         continent: "North America 2",
-        data: [{0: {date: '2020-03-13', total_cases: 2, new_cases: 2, total_cases_per_million: 18.773, new_cases_per_million: 18.773},
-                1: {date: '2020-03-14', total_cases: 2, new_cases: 0, total_cases_per_million: 18.773, new_cases_per_million: 0},
-                2: {date: '2020-03-15', total_cases: 2, new_cases: 0, total_cases_per_million: 18.773, new_cases_per_million: 0},
-                3: {date: '2020-03-16', total_cases: 2, new_cases: 0, total_cases_per_million: 18.773, new_cases_per_million: 0},
-                4: {date: '2020-03-17', total_cases: 3, new_cases: 1, total_cases_per_million: 28.159, new_cases_per_million: 9.386},
-                5: {date: '2020-03-18', total_cases: 4, new_cases: 1, new_cases_smoothed: 0.571, total_cases_per_million: 37.546},
-                6: {date: '2020-03-19', total_cases: 4, new_cases: 0, new_cases_smoothed: 0.571, total_cases_per_million: 37.546}}],
+        data: [{0: {date: '2020-03-13', total_cases: 3, new_cases: 2, total_cases_per_million: 18.773, new_cases_per_million: 18.773},
+                1: {date: '2020-03-14', total_cases: 4, new_cases: 10, total_cases_per_million: 18.773, new_cases_per_million: 0},
+                2: {date: '2020-03-15', total_cases: 5, new_cases: 10, total_cases_per_million: 18.773, new_cases_per_million: 0},
+                3: {date: '2020-03-16', total_cases: 6, new_cases: 10, total_cases_per_million: 18.773, new_cases_per_million: 0},
+                4: {date: '2020-03-17', total_cases: 7, new_cases: 11, total_cases_per_million: 28.159, new_cases_per_million: 9.386},
+                5: {date: '2020-03-18', total_cases: 8, new_cases: 11, new_cases_smoothed: 0.571, total_cases_per_million: 37.546},
+                6: {date: '2020-03-19', total_cases: 9, new_cases: 10, new_cases_smoothed: 0.571, total_cases_per_million: 37.546}}],
         diabetes_prevalence: 11.62,
         gdp_per_capita: 5973.781,
         life_expectancy: 66.29,
@@ -83,6 +90,14 @@ const [covidData, setCovidData] = useState();
       })
   }, [])
 
+
+
+  let countryKeys = [];
+  for (let key in covidData) {
+    countryKeys.push(key); // pushes each key into keys arrays
+  }
+
+
   if (isDarkMode) {
     document.querySelector('html').classList.add("bootstrap-dark")
     document.querySelector('html').classList.remove("bootstrap")
@@ -90,6 +105,31 @@ const [covidData, setCovidData] = useState();
     document.querySelector('html').classList.add("bootstrap")
     document.querySelector('html').classList.remove("bootstrap-dark")
   }
+
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
+
+  function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  
+    useEffect(() => {
+      function handleResize() {
+        setWindowDimensions(getWindowDimensions());
+      }
+  
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  
+    return windowDimensions;
+  }
+
+
 
   return (
     <UserContext.Provider value={{
@@ -99,7 +139,9 @@ const [covidData, setCovidData] = useState();
       selectedCountry, 
       selectCountry, 
       selectedOptions,
-      selectOptions
+      selectOptions,
+      useWindowDimensions,
+      countryKeys
       }}>
       {props.children}
     </UserContext.Provider>
