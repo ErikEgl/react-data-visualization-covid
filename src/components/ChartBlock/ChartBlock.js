@@ -2,13 +2,13 @@ import React from "react";
 import CountrySelect from "../CountrySelect/CountrySelect";
 import ChartControls from "../ChartControls/ChartControls";
 import { Tab, Tabs } from "react-bootstrap";
-import { BarChart, LineChart, LineSeries, PointSeries } from "reaviz";
+import BarChart from "../ChartTypes/BarChart";
 import { useContext } from "react";
 import { UserContext } from "../../utils/useContext";
 
 function ChartBlock(props) {
-  const { selectedCountry, selectedOptions } = useContext(UserContext);
-  const { covidData } = useContext(UserContext);
+  const { selectedCountry, selectedOptions, useWindowDimensions } = useContext(UserContext);
+  const { covidData, countryKeys } = useContext(UserContext);
   const chartControlNames = {
     name1: "ReportedCases1",
     name2: "ReportedCases2",
@@ -24,7 +24,7 @@ function ChartBlock(props) {
         className="mb-3"
       >
         <Tab eventKey={chartControlNames.name1} title={chartControlNames.name1}>
-          {selectedCountry && selectedCountry.countrySelect}
+          {selectedCountry && selectedCountry}
           <br />
           <h1>
             Line chart{" "}
@@ -38,7 +38,7 @@ function ChartBlock(props) {
               selectedOptions.ReportedCases2.value}
           </h1>
           <br />
-          <div className="d-flex gap-2">
+          <div className="d-flex gap-2 flex-wrap justify-content-between">
             <div className="d-flex rounded border border-5 justify-content-center align-items-center">
               <ChartControls
                 name={chartControlNames.name1}
@@ -62,7 +62,7 @@ function ChartBlock(props) {
           </div>
         </Tab>
         <Tab eventKey={chartControlNames.name3} title={chartControlNames.name3}>
-          {selectedCountry && selectedCountry.countrySelect}
+          {selectedCountry && selectedCountry}
           <br />
           <h1>
             Bar chart{" "}
@@ -71,12 +71,13 @@ function ChartBlock(props) {
           </h1>
           <br />
           <h1>
-          Bar chart{" "}
+            Bar chart{" "}
             {chartControlNames.name4 === selectedOptions.RankedCharts2.name &&
               selectedOptions.RankedCharts2.value}
+              <BarChart countryKeys={countryKeys} />
           </h1>
           <br />
-          <div className="d-flex gap-2">
+          <div className="d-flex gap-2 flex-wrap justify-content-between">
             <div className="d-flex rounded border border-5 justify-content-center align-items-center">
               <ChartControls
                 name={chartControlNames.name3}
