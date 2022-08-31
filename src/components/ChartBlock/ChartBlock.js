@@ -42,11 +42,11 @@ function ChartBlock(props) {
             <div className="d-flex rounded border border-5 justify-content-center align-items-center">
               <ChartControls
                 name={chartControlNames.name1}
-                control="Death count"
+                control="Death count new_deaths or total_deaths_per_million"
               />
               <ChartControls
                 name={chartControlNames.name1}
-                control="Confirmed cases"
+                control="Confirmed cases new_cases or total_cases_per_million"
               />
             </div>
             <div className="d-flex rounded border border-5 justify-content-center align-items-center">
@@ -81,11 +81,11 @@ function ChartBlock(props) {
             <div className="d-flex rounded border border-5 justify-content-center align-items-center">
               <ChartControls
                 name={chartControlNames.name3}
-                control="Total number of deaths"
+                control="Total number of deaths total_deaths"
               />
               <ChartControls
                 name={chartControlNames.name3}
-                control="Total number of cases"
+                control="Total number of cases total_cases"
               />
             </div>
             <div className="d-flex rounded border border-5 justify-content-center align-items-center">

@@ -16,27 +16,42 @@ function BarChart({ countryKeys }) {
   const [userData, setUserData] = React.useState({})
 
 
+
+
+  let labels = [];
+  let datasetData = [];
+  let conditionLabel = null
+  function getUserData(condition) {
+    conditionLabel = condition
+    for(let i = 0; i < Object.keys(covidData[key].data).length; i++) {
+      labels.push(covidData[key].data[i].date)
+      datasetData.push(covidData[key].data[i].new_cases)
+    }
+  }
+
   React.useEffect(() => {
     if(key) {
-      for(let i = 0; i < Object.keys(covidData[key].data[0]).length; i++) {
-        setUserData({
-          labels: covidData[key].data[0][i].date,
-          datasets: [{
-            label: 'users gained',
-            data: covidData[key].data[0][i].new_cases
-          }],
-        }) 
-      }
+      getUserData()
+      setUserData(prevData => {
+        return(
+          {
+            ...prevData,
+            labels: labels,
+            datasets: [{
+              label: conditionLabel,
+              data: datasetData
+            }],
+          }
+        )
+      })
     }
   }, [selectedCountry])
-  console.log(userData);
-  // console.log(Object.keys(covidData));
 
+  console.log(covidData);
   return (
       <div>
         {key}
-        {Object.keys(userData).length && 123}
-        
+        {Object.keys(userData).length && <Bar data={userData}/>}
       </div>
   )
 }
