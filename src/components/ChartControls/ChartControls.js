@@ -9,12 +9,6 @@ function ChartControls(props) {
     selectOptions(value, name);
   }
 
-  // let keys = [];
-  // for (let key in selectedOptions) {
-  //     keys.push(key); // pushes each key into keys arrays
-  // }
-  // let data = keys.map(key => selectedOptions[key])
-  //
   return (
     <>
       <div className="d-flex flex-column gap-1 justify-content-center form-check form-switch p-0 m-0 border border-5">
