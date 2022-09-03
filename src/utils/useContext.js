@@ -24,6 +24,42 @@ function AppContextProvider(props) {
     },
   });
 
+  const [chartControlsData, setChartControlsData] = useState({
+    name1: {
+      name: "ReportedCases1",
+      title: "Reported cases",
+      control_title: "Death count",
+      control_option_1: "new_deaths",
+      control_option_2: "total_deaths_per_million",
+    },
+    name2: {
+      name: "ReportedCases1",
+      title: "Reported cases",
+      control_title: "Confirmed cases",
+      control_option_1: "new_cases",
+      control_option_2: "total_cases_per_million",
+
+    },
+    name3: {
+      name: "RankedCharts1",
+      title: "Ranked charts",
+      control_title: "Total number of deaths",
+      control_option_1: "total_deaths",
+    },
+    name4: {
+      name: "RankedCharts1",
+      title: "Ranked charts",
+      control_title: "Total number of cases",
+      control_option_1: "total_cases",
+    },
+    name5: {
+      name: "ReportedCases2",
+      title: "Reported cases",
+      control_title: "",
+      control_option_1: "",
+    },
+  });
+
   function changeMode() {
     setIsDarkMode((prevMode) => !prevMode);
   }
@@ -47,9 +83,9 @@ function AppContextProvider(props) {
   const [covidData, setCovidData] = useState([]);
   // let API_URL = 'https://covid.ourworldindata.org/data/owid-covid-data.json'
   useEffect(() => {
-    // fetch(API_URL)
-    // .then((response) => response.json())
-    // .then((data) => setCovidData(data));
+      // fetch(API_URL)
+      // .then((response) => response.json())
+      // .then((data) => setCovidData(data));
 
     setCovidData({
       ABW: {
@@ -315,6 +351,7 @@ function AppContextProvider(props) {
         selectOptions,
         useWindowDimensions,
         countryKeys,
+        chartControlsData
       }}
     >
       {props.children}
