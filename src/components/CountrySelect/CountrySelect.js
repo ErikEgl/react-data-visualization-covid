@@ -23,7 +23,7 @@ function CountrySelect() {
               onChange={handleChange}
               name="countrySelect"
           >
-              <option value="">-- Choose --</option>
+              <option value="EST">-- Choose --</option>
               {items}
           </Form.Select>
         </form>
