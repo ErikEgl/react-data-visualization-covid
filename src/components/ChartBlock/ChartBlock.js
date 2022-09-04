@@ -21,9 +21,10 @@ function ChartBlock(props) {
         <Tab eventKey={chartControlsData.name1.title} title={chartControlsData.name1.title}>
           {selectedCountry && selectedCountry}
           <br />
-            {/* {chartControlsData.name1.control_title === selectedOptions.ReportedCases1.value && selectedOptions.ReportedCases1.value && <BarChart selectedInputOption={chartControlsData.name1.control_option_1} countryKeys={countryKeys} />} */}
-            {chartControlsData.name1.control_title === selectedOptions.ReportedCases1.value && <BarChart selectedInputOption={chartControlsData.name1.control_option_1} countryKeys={countryKeys} />}
-            {chartControlsData.name2.control_title === selectedOptions.ReportedCases1.value && <BarChart selectedInputOption={chartControlsData.name2.control_option_1} countryKeys={countryKeys} />}
+            {(chartControlsData.name1.control_title /*Death count*/=== selectedOptions.ReportedCases1.value) /*Death count or Confirmed cases*/ && (selectedOptions.ReportedCases2.value === 'Daily new values') && <BarChart selectedInputOption={chartControlsData.name1.control_option_1} countryKeys={countryKeys} />}
+            {(chartControlsData.name1.control_title /*Death count*/=== selectedOptions.ReportedCases1.value) /*Death count or Confirmed cases*/ && (selectedOptions.ReportedCases2.value === 'Cumulative mode') && <BarChart selectedInputOption={chartControlsData.name1.control_option_2} countryKeys={countryKeys} />}
+            {(chartControlsData.name2.control_title /*Confirmed cases*/ === selectedOptions.ReportedCases1.value) /*Death count or Confirmed cases*/ && (selectedOptions.ReportedCases2.value === 'Daily new values') && <BarChart selectedInputOption={chartControlsData.name2.control_option_1} countryKeys={countryKeys} />}
+            {(chartControlsData.name2.control_title /*Confirmed cases*/ === selectedOptions.ReportedCases1.value) /*Death count or Confirmed cases*/ && (selectedOptions.ReportedCases2.value === 'Cumulative mode') && <BarChart selectedInputOption={chartControlsData.name2.control_option_2} countryKeys={countryKeys} />}
           <br />
 
 
