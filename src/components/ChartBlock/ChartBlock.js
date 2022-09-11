@@ -7,8 +7,8 @@ import { useContext } from "react";
 import { UserContext } from "../../utils/useContext";
 
 function ChartBlock(props) {
-  const { selectedCountry, selectedOptions, useWindowDimensions } = useContext(UserContext);
-  const { covidData, countryKeys, chartControlsData } = useContext(UserContext);
+  const { selectedCountry, selectedOptions, countryKeys, chartControlsData } = useContext(UserContext);
+
 
   return (
     <div className="chart-block">
