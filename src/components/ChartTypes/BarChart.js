@@ -11,13 +11,13 @@ function BarChart({ countryKeys, selectedInputOption }) {
     if (!Object.keys(covidData).length) return;
     return countryKeys.filter((key) => selectedCountry === key);
   }
-  console.log(selectedOptions);
+
   const key = getSelectedCountry();
 
   const [userData, setUserData] = React.useState({})
 
 
-console.log(selectedInputOption);
+
 
   let labels = [];
   let datasetData = [];
@@ -26,7 +26,6 @@ console.log(selectedInputOption);
     conditionLabel = condition
     for(let i = 0; i < Object.keys(covidData[key].data).length; i++) {
       labels.push(covidData[key].data[i].date)
-      console.log(condition === "total_cases");
       if(condition === "total_cases") {
         datasetData.push(covidData[key].data[i].total_cases)
       } else if(condition === "new_deaths") {
@@ -64,7 +63,6 @@ console.log(selectedInputOption);
     }
   }, [selectedCountry])
 
-  console.log(covidData);
   return (
       <div>
         {key}

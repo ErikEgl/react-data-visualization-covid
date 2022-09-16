@@ -8,7 +8,6 @@ import Loader from "./components/Loader/Loader";
 
 function App() {
   const { isLoading } = useContext(UserContext);
-  console.log(isLoading);
   return (
     <>
       <main>   
