@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../utils/useContext";
-
+import Spinner from 'react-bootstrap/Spinner';
 function Loader() {
   const [loadingInfo, setLoadingInfo] = useState(null);
 
 
   let API_URL = "https://covid.ourworldindata.org/data/owid-covid-data.json";
-  const { getCovidData, getIsLoading, isLoading, setIsLoading, setCovidData } = useContext(UserContext);
+  const { getCovidData, getIsLoading, isLoading, setIsLoading, setCovidData, covidData } = useContext(UserContext);
 
 
   useEffect(() => {
@@ -51,6 +51,7 @@ function Loader() {
   return (
     <div>
       {isLoading && loadingInfo}
+      {isLoading && <Spinner animation="border" role="status"></Spinner>}
     </div>
   );
 }

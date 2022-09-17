@@ -3,7 +3,7 @@ import { UserContext } from "./utils/useContext";
 
 import ModeToggle from "./components/ModeToggle/ModeToggle";
 import ChartBlock from "./components/ChartBlock/ChartBlock";
-import Spinner from 'react-bootstrap/Spinner';
+
 import Loader from "./components/Loader/Loader";
 
 function App() {
@@ -12,7 +12,6 @@ function App() {
     <>
       <main>   
         <Loader/> 
-        {isLoading && <Spinner animation="border" role="status"></Spinner>}
         <ModeToggle />
         <ChartBlock />
       </main>
