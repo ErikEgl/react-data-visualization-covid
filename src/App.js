@@ -13,7 +13,8 @@ function App() {
       <main>   
         <Loader/> 
         <ModeToggle />
-        <ChartBlock />
+        {!isLoading && <ChartBlock />}
+        
       </main>
     </>
   );
