@@ -8,13 +8,15 @@ import Loader from "./components/Loader/Loader";
 
 function App() {
   const { isLoading } = useContext(UserContext);
+
   return (
     <>
-      <main>   
-        <Loader/> 
-        <ModeToggle />
+      <main>
+        <div className={isLoading && "position-relative vh-100"}>
+          <Loader />
+          <ModeToggle />
+        </div>
         {!isLoading && <ChartBlock />}
-        
       </main>
     </>
   );
