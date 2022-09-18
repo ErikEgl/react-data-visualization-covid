@@ -16,7 +16,7 @@ function ChartBlock(props) {
       <Tabs
         defaultActiveKey="profile"
         id="uncontrolled-tab-example"
-        className="mb-3"
+        className="my-3"
       >
         <Tab eventKey={chartControlsData.name1.title} title={chartControlsData.name1.title}>
           {selectedCountry && selectedCountry}

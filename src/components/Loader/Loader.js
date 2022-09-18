@@ -49,8 +49,9 @@ function Loader() {
 
   }, []);
   return (
-    <div>
+    <div className="center-item">
       {isLoading && loadingInfo}
+      <br/>
       {isLoading && <Spinner animation="border" role="status"></Spinner>}
     </div>
   );

@@ -17,7 +17,7 @@ function CountrySelect() {
   }
   return (
     <>
-        <form>
+        <form className="my-3">
           <Form.Select 
               id="countrySelect"
               onChange={handleChange}

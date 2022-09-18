@@ -6,8 +6,8 @@ function ModeToggle() {
   const { isDarkMode, changeMode } = useContext(UserContext);
   return (
     <>
-      <Button className="ml-auto" onClick={changeMode}>
-        {isDarkMode ? "Change to light mode" : "Change to dark mode"}
+      <Button className='mt-1' onClick={changeMode}>
+        {isDarkMode ? "Change to light mode 🌞" : "Change to dark mode 🌒"}
       </Button>
     </>
   );
