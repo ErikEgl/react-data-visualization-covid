@@ -8,7 +8,7 @@ import { UserContext } from "../../utils/useContext";
 
 function ChartBlock(props) {
   const { selectedCountry, selectedOptions, countryKeys, chartControlsData, covidData, isLoading } = useContext(UserContext);
-  const flagClassName = isLoading ? null : covidData[selectedCountry]?.location.toLowerCase()
+  const flagClassName = isLoading ? " " : covidData[selectedCountry]?.location.toLowerCase().replace(/ /g,"-");
   return (
     <div className="chart-block">
       <h1>Statistics</h1>
@@ -22,7 +22,7 @@ function ChartBlock(props) {
         className="my-3"
       >
         <Tab eventKey={chartControlsData.name1.title} title={chartControlsData.name1.title}>
-         <i className={`flag flag-${flagClassName}`}></i> 
+         <span className={`flag flag-${flagClassName}`}></span> 
           <br />
             {(chartControlsData.name1.control_title /*Death count*/=== selectedOptions.ReportedCases1.value) /*Death count or Confirmed cases*/ && (selectedOptions.ReportedCases2.value === 'Daily new values') && <BarChart selectedInputOption={chartControlsData.name1.control_option_1} countryKeys={countryKeys} />}
             {(chartControlsData.name1.control_title /*Death count*/=== selectedOptions.ReportedCases1.value) /*Death count or Confirmed cases*/ && (selectedOptions.ReportedCases2.value === 'Cumulative mode') && <BarChart selectedInputOption={chartControlsData.name1.control_option_2} countryKeys={countryKeys} />}
