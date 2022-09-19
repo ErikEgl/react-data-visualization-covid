@@ -12,6 +12,7 @@ function ChartBlock(props) {
 
   return (
     <div className="chart-block">
+      <h1>Statistics</h1>
       <small className="d-block my-2">
         Data on COVID-19 (coronavirus) <a href="https://github.com/owid/covid-19-data/tree/master/public/data">by Our World in Data</a>
       </small> 
