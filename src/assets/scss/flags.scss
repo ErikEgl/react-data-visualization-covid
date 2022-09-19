@@ -1,13 +1,10 @@
- .flag {
-
-
-}
-
 .flag {
     background-image: url(https://mdbootstrap.com/img/svg/flags.png);
     background-repeat: no-repeat;
-    background-size: 16px 11px;
     background-position: -108px -1976px;
+    width: 16px ;
+    height: 11px;
+    display: inline-block;
 }
 
  .flag-ad, .flag-andorra {

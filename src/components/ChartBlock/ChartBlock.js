@@ -7,9 +7,8 @@ import { useContext } from "react";
 import { UserContext } from "../../utils/useContext";
 
 function ChartBlock(props) {
-  const { selectedCountry, selectedOptions, countryKeys, chartControlsData } = useContext(UserContext);
-
-
+  const { selectedCountry, selectedOptions, countryKeys, chartControlsData, covidData, isLoading } = useContext(UserContext);
+  const flagClassName = isLoading ? null : covidData[selectedCountry]?.location.toLowerCase()
   return (
     <div className="chart-block">
       <h1>Statistics</h1>
@@ -23,7 +22,7 @@ function ChartBlock(props) {
         className="my-3"
       >
         <Tab eventKey={chartControlsData.name1.title} title={chartControlsData.name1.title}>
-          {selectedCountry && selectedCountry}
+         <i className={`flag flag-${flagClassName}`}></i> 
           <br />
             {(chartControlsData.name1.control_title /*Death count*/=== selectedOptions.ReportedCases1.value) /*Death count or Confirmed cases*/ && (selectedOptions.ReportedCases2.value === 'Daily new values') && <BarChart selectedInputOption={chartControlsData.name1.control_option_1} countryKeys={countryKeys} />}
             {(chartControlsData.name1.control_title /*Death count*/=== selectedOptions.ReportedCases1.value) /*Death count or Confirmed cases*/ && (selectedOptions.ReportedCases2.value === 'Cumulative mode') && <BarChart selectedInputOption={chartControlsData.name1.control_option_2} countryKeys={countryKeys} />}
@@ -60,7 +59,7 @@ function ChartBlock(props) {
 
 
         <Tab eventKey={chartControlsData.name3.title} title={chartControlsData.name3.title}>
-          {selectedCountry && selectedCountry}
+          <i className={`flag flag-${flagClassName}`}></i> 
           <br />
             {chartControlsData.name3.control_title === selectedOptions.RankedCharts1.value && <BarChart selectedInputOption={chartControlsData.name3.control_option_1} countryKeys={countryKeys} />}
             {chartControlsData.name4.control_title === selectedOptions.RankedCharts1.value && <BarChart selectedInputOption={chartControlsData.name4.control_option_1} countryKeys={countryKeys} />}
