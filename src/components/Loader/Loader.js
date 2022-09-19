@@ -31,7 +31,7 @@ function Loader() {
         chunks.push(value);
         receivedLength += value.length;
         
-        setLoadingInfo(`Loading... ${((receivedLength * 100) / contentLength).toFixed(2)}%`);
+        setLoadingInfo(`Loading statistics... ${((receivedLength * 100) / contentLength).toFixed(2)}%`);
       }
     
       let chunksAll = new Uint8Array(receivedLength);
