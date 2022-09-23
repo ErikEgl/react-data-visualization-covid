@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-data-visualization-covid/static/css/main.a4d56a69.css",
-    "main.js": "/react-data-visualization-covid/static/js/main.7dffd42b.js",
+    "main.js": "/react-data-visualization-covid/static/js/main.a0afdedf.js",
     "index.html": "/react-data-visualization-covid/index.html",
     "main.a4d56a69.css.map": "/react-data-visualization-covid/static/css/main.a4d56a69.css.map",
-    "main.7dffd42b.js.map": "/react-data-visualization-covid/static/js/main.7dffd42b.js.map"
+    "main.a0afdedf.js.map": "/react-data-visualization-covid/static/js/main.a0afdedf.js.map"
   },
   "entrypoints": [
     "static/css/main.a4d56a69.css",
-    "static/js/main.7dffd42b.js"
+    "static/js/main.a0afdedf.js"
   ]
 }
