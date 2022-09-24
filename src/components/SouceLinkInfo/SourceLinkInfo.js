@@ -9,17 +9,31 @@ useEffect(() => {
     .then(response => response.json())
     .then(data => setCommits(data));
 }, []);
+
 let time;
 let updateText = '';
 if(commits) { 
   time = commits.find(commit => commit.commit.message === "data(megafile): automated update") 
-  console.log(time.commit.author.date);
   let currentTime = new Date();
 
   const updateDate = new Date(time.commit.author.date);
   const diffInMilliseconds = Math.abs(currentTime - updateDate);
-  const minutes = Math.floor((diffInMilliseconds / 1000) / 60)
-  updateText = `Updated ${minutes} minutes ago`
+  const totalMinutes = Math.floor((diffInMilliseconds / 1000) / 60)
+  function toHoursAndMinutes(totalMinutes) {
+    const minutes = totalMinutes % 60;
+    const hours = Math.floor(totalMinutes / 60);
+    if(padTo2Digits(hours) == 0) {
+      return `${padTo2Digits(minutes)} minutes ago`;
+    } else {
+      return `${padTo2Digits(hours)} hours and ${padTo2Digits(minutes)} minutes ago`;
+    }
+   
+  }
+
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+}
+  updateText = `Updated ${toHoursAndMinutes(totalMinutes)}`
 }
 
   return (
@@ -33,9 +47,3 @@ if(commits) {
   );
 }
 export default SourceLinkInfo;
-
-
-
-// import { useContext } from "react";
-// import { UserContext } from "../../utils/useContext";
-//   const { covidData } = useContext(UserContext);
