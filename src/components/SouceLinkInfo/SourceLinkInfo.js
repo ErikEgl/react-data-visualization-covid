@@ -22,17 +22,13 @@ if(commits) {
   function toHoursAndMinutes(totalMinutes) {
     const minutes = totalMinutes % 60;
     const hours = Math.floor(totalMinutes / 60);
-    if(padTo2Digits(hours) == 0) {
-      return `${padTo2Digits(minutes)} minutes ago`;
+    if(hours == 0) {
+      return `${minutes} minutes ago`;
     } else {
-      return `${padTo2Digits(hours)} hours and ${padTo2Digits(minutes)} minutes ago`;
+      return `${hours} hours ago`;
     }
    
   }
-
-  function padTo2Digits(num) {
-    return num.toString().padStart(2, '0');
-}
   updateText = `Updated ${toHoursAndMinutes(totalMinutes)}`
 }
 
